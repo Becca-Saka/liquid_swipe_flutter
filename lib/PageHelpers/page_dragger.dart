@@ -3,6 +3,7 @@ import 'package:liquid_swipe/Helpers/Helpers.dart';
 import 'package:liquid_swipe/Helpers/SlideUpdate.dart';
 import 'package:liquid_swipe/Provider/LiquidProvider.dart';
 import 'package:provider/provider.dart';
+
 import 'page_reveal.dart';
 
 /// Internal Widget
@@ -11,6 +12,7 @@ import 'page_reveal.dart';
 /// from where we perform animations various other methods.
 class PageDragger extends StatefulWidget {
   final double horizontalReveal;
+  final double initialRevealRadius;
   final Widget child;
   final SlideDirection? slideDirection;
   final Size iconSize;
@@ -35,6 +37,7 @@ class PageDragger extends StatefulWidget {
   ///Constructor with some default values
   PageDragger({
     required this.horizontalReveal,
+    required this.initialRevealRadius,
     required this.child,
     this.slideDirection,
     required this.iconSize,
@@ -173,6 +176,7 @@ class _PageDraggerState extends State<PageDragger> {
               //next page reveal
               horizontalReveal: widget.horizontalReveal,
               slideDirection: widget.slideDirection,
+              initialRevealRadius: widget.initialRevealRadius,
               iconSize: widget.iconSize,
               waveType: widget.waveType,
               verticalReveal: widget.verticalReveal,

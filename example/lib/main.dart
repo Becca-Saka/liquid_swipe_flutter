@@ -5,10 +5,9 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 
 void main() {
   /// Comment or uncomment to run both examples
-  runApp(
-      WithBuilder()
+  runApp(WithBuilder()
       // WithPages()
-  );
+      );
 }
 
 ///Class to hold data for itembuilder in Withbuilder app.
@@ -127,6 +126,7 @@ class _WithBuilder extends State<WithBuilder> {
                 );
               },
               positionSlideIcon: 0.8,
+              initialRevealRadius: 1.8,
               slideIconWidget: Icon(Icons.arrow_back_ios),
               onPageChangeCallback: pageChangeCallback,
               waveType: WaveType.liquidReveal,

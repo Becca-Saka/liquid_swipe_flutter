@@ -17,6 +17,7 @@ import 'package:liquid_swipe/PageHelpers/page_dragger.dart';
 /// [verticalReveal] Vertical Reveal from [PageDragger]
 class PageReveal extends StatelessWidget {
   final double horizontalReveal;
+  final double initialRevealRadius;
   final Widget child;
   final SlideDirection? slideDirection;
   final Size iconSize;
@@ -27,6 +28,7 @@ class PageReveal extends StatelessWidget {
   ///Constructor for [PageReveal].
   PageReveal({
     required this.horizontalReveal,
+    required this.initialRevealRadius,
     required this.child,
     this.slideDirection,
     required this.iconSize,
@@ -57,6 +59,7 @@ class PageReveal extends StatelessWidget {
               revealPercent: slideDirection == SlideDirection.leftToRight
                   ? 1.0 - horizontalReveal
                   : horizontalReveal,
+              initialRevealRadius: initialRevealRadius,
               slideDirection: slideDirection,
               iconSize: iconSize,
               verReveal: verticalReveal,

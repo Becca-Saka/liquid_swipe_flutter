@@ -6,6 +6,7 @@ import 'package:liquid_swipe/Helpers/Helpers.dart';
 ///Liquid Type PathClipper
 class WaveLayer extends CustomClipper<Path> {
   double revealPercent;
+  double initialRevealRadius;
   double verReveal;
   late double waveCenterY;
   late double waveHorRadius;
@@ -17,6 +18,7 @@ class WaveLayer extends CustomClipper<Path> {
 
   WaveLayer({
     required this.revealPercent,
+    required this.initialRevealRadius,
     required this.slideDirection,
     required this.iconSize,
     required this.verReveal,
@@ -161,9 +163,8 @@ class WaveLayer extends CustomClipper<Path> {
 
   double waveVertRadiusF(Size size) {
     var p1 = 0.4;
-
     if (revealPercent <= 0) {
-      return enableSideReveal ? iconSize.height : 0;
+      return enableSideReveal ? iconSize.height * initialRevealRadius : 0;
     }
 
     if (revealPercent >= p1) {

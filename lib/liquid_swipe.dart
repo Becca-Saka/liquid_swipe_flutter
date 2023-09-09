@@ -165,6 +165,9 @@ class LiquidSwipe extends StatefulWidget {
   ///Type of Wave you want, its a enum, you might have to import helpers.dart
   final WaveType waveType;
 
+  /// Required to set the shape of the wave before dragging
+  final double initialRevealRadius;
+
   ///see [OnPageChangeCallback]
   final OnPageChangeCallback? onPageChangeCallback;
 
@@ -260,6 +263,7 @@ class LiquidSwipe extends StatefulWidget {
     this.fullTransitionValue = FULL_TRANSITION_PX,
     this.initialPage = 0,
     this.slideIconWidget,
+    this.initialRevealRadius = 1,
     this.positionSlideIcon = 0.8,
     this.enableLoop = true,
     this.liquidController,
@@ -327,6 +331,7 @@ class LiquidSwipe extends StatefulWidget {
     this.initialPage = 0,
     this.slideIconWidget,
     this.positionSlideIcon = 0.8,
+    this.initialRevealRadius = 1,
     this.enableLoop = true,
     this.liquidController,
     this.waveType = WaveType.liquidReveal,
@@ -389,6 +394,7 @@ class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
             PageDragger(
               //Used for gesture control
               horizontalReveal: notifier.slidePercentHor,
+              initialRevealRadius: widget.initialRevealRadius,
               slideDirection: notifier.slideDirection,
               iconSize: notifier.iconSize,
               waveType: widget.waveType,
