@@ -36,7 +36,7 @@ class WaveLayer extends CustomClipper<Path> {
         ? waveHorRadiusFBack(size)
         : waveHorRadiusF(size);
 
-    var maskWidth = size.width - sideWidth;
+    var maskWidth = size.width - sideWidth - (initialRevealRadius / 2);
     path.moveTo(maskWidth - sideWidth, 0);
     path.lineTo(0, 0);
     path.lineTo(0, size.height);
@@ -177,7 +177,7 @@ class WaveLayer extends CustomClipper<Path> {
 
   double waveHorRadiusF(Size size) {
     if (revealPercent <= 0) {
-      return iconSize.width;
+      return iconSize.width * initialRevealRadius;
     }
 
     if (revealPercent >= 1) {

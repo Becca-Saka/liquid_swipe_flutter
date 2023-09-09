@@ -126,8 +126,19 @@ class _WithBuilder extends State<WithBuilder> {
                 );
               },
               positionSlideIcon: 0.8,
-              initialRevealRadius: 1.8,
-              slideIconWidget: Icon(Icons.arrow_back_ios),
+              slideIconWidget: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32),
+                    border: Border.all(
+                      width: 1,
+                    ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                    ),
+                  )),
               onPageChangeCallback: pageChangeCallback,
               waveType: WaveType.liquidReveal,
               liquidController: liquidController,
